@@ -12,7 +12,7 @@ Stop using loops and logic that will hinder your performance. The dynamicDialog 
 
 # 📝 Usage Examples
 ```pawn
-static enum {
+enum {
     E_INTERACTION_TEST1,
     E_INTERACTION_TEST2,
     E_INTERACTION_TEST3
