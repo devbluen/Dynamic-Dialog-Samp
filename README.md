@@ -1,5 +1,5 @@
 # 🍪 Dynamic Dialog - System
-Stop using loops and logic that will hinder your performance. The dynamicDialog solves the problem of dynamic selection in dialogs, making it easier for you to know which item has been selected.
+Create options in your Dialog in a more simplified and dynamic way.
 
 # 🫧 How to install?
 - You will need the YSI bookstore. (https://github.com/pawn-lang/YSI-Includes)
