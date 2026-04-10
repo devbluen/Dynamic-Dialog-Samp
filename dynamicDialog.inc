@@ -66,8 +66,10 @@ stock DialogDynamic_Create(playerid, DIALOG_STYLE:style, const title[], const bu
     Indirect_Release(inlineCreate);
 
     new dialog[1024 * 4];
-    foreach(new i: DialogRows[playerid])
-        strcatEx(dialog, "%s\n", e_DialogDynamicRow[playerid][i][E_DIALOGDYNAMICROW_STRING]);
+    foreach(new i: DialogRows[playerid]) {
+        strcat(dialog, e_DialogDynamicRow[playerid][i][E_DIALOGDYNAMICROW_STRING]);
+        strcat(dialog, "\n");
+    }
 
     Dialog_Show(playerid, D_DYNAMICDIALOG, style, title, dialog, button1, button2);
 }
