@@ -132,7 +132,7 @@ Dialog:D_DYNAMICDIALOG(playerid, response, row, const inputtext[]) {
         row--;
 
     listitem = DialogDynamic_GetInt(playerid, row);
-    DialogDynamic_GetString(playerid, row, callback);
+    strcopy(callback, e_DialogDynamic[playerid][E_DIALOGDYNAMIC_CALLBACK]);
     DialogDynamic_Reset(playerid);
 
     CallLocalFunction(va_return("ddyn_%s", callback), "iiis", playerid, response, listitem, inputtext);  // return -> playerid, response, listitem, inputtext[]
