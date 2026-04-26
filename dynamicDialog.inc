@@ -55,10 +55,10 @@ hook OnPlayerDisconnect(playerid, reason) {
 
 */
 
-stock DialogDynamic_Create(playerid, DIALOG_STYLE:style, const title[], const button1[], const button2[], Func:inlineCreate, const callback[]) {
+stock DialogDynamic_Create(playerid, DIALOG_STYLE:style, const title[], const button1[], const button2[], Func:inlineCreate<>, const callback[]) {
 
     DialogDynamic_Reset(playerid);
-    strcopy(e_DialogDynamic[playerid][E_DIALOGDYNAMIC_CALLBACK]);
+    strcopy(e_DialogDynamic[playerid][E_DIALOGDYNAMIC_CALLBACK], callback);
     e_DialogDynamic[playerid][E_DIALOGDYNAMIC_STYLE] = style;
 
     Indirect_Claim(inlineCreate);
