@@ -18,6 +18,7 @@
 
             // Includes
 #include <YSI_Coding\y_hooks>
+#include <YSI_Coding\y_va>
 
 static enum E_DIALOGDYNAMIC {
     DIALOG_STYLE:E_DIALOGDYNAMIC_STYLE,
@@ -74,13 +75,16 @@ stock DialogDynamic_Create(playerid, DIALOG_STYLE:style, const title[], const bu
     Dialog_Show(playerid, D_DYNAMICDIALOG, style, title, dialog, button1, button2);
 }
 
-stock bool:DialogDynamic_Add(playerid, const body[], id = 0) {
+stock bool:DialogDynamic_Add(playerid, id, const body[], {Float, _}:...) {
     new index = Iter_Free(DialogRows[playerid]);
     if(index == ITER_NONE)
         return false;
 
+    new bodyBuff[256];
+    format(bodyBuff, sizeof bodyBuff, body, ___(3));
+
     e_DialogDynamicRow[playerid][index][E_DIALOGDYNAMICROW_INT] = id;
-    strcopy(e_DialogDynamicRow[playerid][index][E_DIALOGDYNAMICROW_STRING], body);
+    strcopy(e_DialogDynamicRow[playerid][index][E_DIALOGDYNAMICROW_STRING], bodyBuff);
 
     Iter_Add(DialogRows[playerid], index);
     return true;
@@ -129,7 +133,7 @@ Dialog:D_DYNAMICDIALOG(playerid, response, row, const inputtext[]) {
     ;
 
     if(DialogDynamic_GetType(playerid) == DIALOG_STYLE_TABLIST_HEADERS)
-        row--;
+        row++;
 
     listitem = DialogDynamic_GetInt(playerid, row);
     strcopy(callback, e_DialogDynamic[playerid][E_DIALOGDYNAMIC_CALLBACK]);
