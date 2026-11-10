@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"pawn-lang/YSI-Includes": "^5.10",
+		"devbluen/easyDialog": "^1.0.4"
+	}
+}
